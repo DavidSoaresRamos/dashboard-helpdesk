@@ -7,11 +7,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { routes } from './app.routes';
 import { Router } from '@angular/router';
-
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatSidenavModule, MatIconModule , MatListModule, MatButtonModule], 
+  imports: [RouterOutlet, CommonModule, RouterModule ,MatToolbarModule, MatSidenavModule, MatIconModule , MatListModule, MatButtonModule], 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
