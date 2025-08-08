@@ -1,0 +1,32 @@
+<div class="title">
+    <h1>SOLICITAÇÕES</h1>
+</div>
+<div class="fields">
+    <mat-table>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="sector">
+            <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="problem">
+            <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef>status</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['name', 'sector', 'problem', 'status']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['name', 'sector', 'problem', 'status'];"></mat-row>
+    </mat-table>
+</div>
+

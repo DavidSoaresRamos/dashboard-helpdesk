@@ -1,7 +1,14 @@
 
 .mat-sidenav {
-    width: 250px;
+    width: 100%;
+
 }
+@media (min-width: 768px) {
+  .mat-sidenav {
+    width: 250px;
+  }
+}
+
 i {
     padding-right: 10px;
 }
@@ -11,7 +18,9 @@ i {
 }
 
 .mat-sidenav-content {
-    padding: 20px;
+    padding: 50px;
+    padding-top: 0px;
+    
 }
 
 mat-toolbar {
@@ -29,17 +38,33 @@ mat-toolbar {
         padding-right: 10px;
     }
 }
+.search {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    margin: 25%;
+    width: 100%;
+}
 .searchInput {
     border-radius: 7px;
-    width: 250px;
+    width: 400px;
     height: 23px;
-    background-color: #1E1E2F;
-    border-color: rgb(184, 177, 177);
-    border-style: solid;
+    background-color: #32324d;
+    border: none;
     font-family: Arial, Helvetica, sans-serif;
+   
 }
-    
-
+::placeholder {
+    color: white;
+    font-family: 'archivo black';
+    font-size: 15px;
+    padding-left: 10px;
+}
+mat-nav-list {
+    :hover {
+        padding-left: 10px;
+    }
+}
 .logoName {
     color: white;
 }
