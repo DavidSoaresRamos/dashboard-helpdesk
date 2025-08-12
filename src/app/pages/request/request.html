@@ -2,7 +2,7 @@
     <h1>SOLICITAÇÕES</h1>
 </div>
 <div class="fields">
-    <mat-table>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
@@ -18,15 +18,12 @@
             <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef>status</mat-header-cell>
-            <mat-cell *matCellDef="let element">
-                
-            </mat-cell>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['name', 'sector', 'problem', 'status']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['name', 'sector', 'problem', 'status'];"></mat-row>
+        <mat-header-row *matHeaderRowDef="['name', 'sector', 'problem', 'id']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['name', 'sector', 'problem', 'id'];"></mat-row>
     </mat-table>
 </div>
-
