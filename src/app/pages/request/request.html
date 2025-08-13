@@ -2,7 +2,7 @@
     <h1>SOLICITAÇÕES</h1>
 </div>
 <div class="fields">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <mat-table [dataSource]="data" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>

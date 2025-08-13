@@ -9,7 +9,7 @@ import { OnInit } from '@angular/core';
   styleUrl: './request.css'
 })
 export class Request implements OnInit { 
-  dataSource = [
+  data = [
     { name: 'John Doe', sector: 'IT', problem: 'Login Issue', id: 1 },
     { name: 'Jane Smith', sector: 'HR', problem: 'Payroll', id: 2 }
   ];
