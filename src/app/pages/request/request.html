@@ -4,22 +4,22 @@
 <div class="fields">
     <mat-table [dataSource]="data" class="mat-elevation-z8">
         <ng-container matColumnDef="name" >
-            <mat-header-cell *matHeaderCellDef class="nameHeader">Nome</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="sector">
-            <mat-header-cell *matHeaderCellDef class="sectorHeader">Setor</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="problem">
-            <mat-header-cell *matHeaderCellDef class="problemHeader">Problema</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef class="idHeader">ID</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
         </ng-container>
 

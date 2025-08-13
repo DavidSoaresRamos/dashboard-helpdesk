@@ -8,6 +8,7 @@ import { OnInit } from '@angular/core';
   templateUrl: './request.html',
   styleUrl: './request.css'
 })
+
 export class Request implements OnInit { 
   data = [
     { name: 'David', sector: 'TI', problem: 'Sem internet', id: 1 },
