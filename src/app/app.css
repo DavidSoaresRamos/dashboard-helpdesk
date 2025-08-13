@@ -1,33 +1,34 @@
-
 .mat-sidenav {
     width: 100%;
-
+ border-right: solid #eeeef3;
 }
+
 @media (min-width: 768px) {
-  .mat-sidenav {
-    width: 250px;
-  }
+    .mat-sidenav {
+        width: 250px;
+    }
 }
 
 i {
     padding-right: 10px;
 }
+
 .mat-sidenav-container {
     height: 89vh;
-    
+
 }
 
 .mat-sidenav-content {
     padding: 50px;
     padding-top: 0px;
-    
+
 }
 
 mat-toolbar {
     background-color: #1E1E2F;
     color: white;
 
-    h1{
+    h1 {
         font-family: 'Archivo Black';
         font-size: 20px;
     }
@@ -38,33 +39,39 @@ mat-toolbar {
         padding-right: 10px;
     }
 }
+
 .search {
-    display: flexbox;
+    flex: 1;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 25%;
-    width: 100%;
 }
+
 .searchInput {
-    border-radius: 7px;
-    width: 400px;
-    height: 23px;
-    background-color: #32324d;
+    width: 100%;
+    max-width: 350px;
+    min-width: 150px;
+    padding: 6px 10px;
+    border-radius: 6px;
     border: none;
+    background-color: #32324d;
+
     font-family: Arial, Helvetica, sans-serif;
-   
+
 }
+
 ::placeholder {
     color: white;
     font-family: 'archivo black';
     font-size: 15px;
     padding-left: 10px;
 }
+
 mat-nav-list {
     :hover {
         padding-left: 10px;
     }
 }
+
 .logoName {
     color: white;
 }

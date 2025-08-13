@@ -10,8 +10,8 @@ import { OnInit } from '@angular/core';
 })
 export class Request implements OnInit { 
   data = [
-    { name: 'John Doe', sector: 'IT', problem: 'Login Issue', id: 1 },
-    { name: 'Jane Smith', sector: 'HR', problem: 'Payroll', id: 2 }
+    { name: 'David', sector: 'TI', problem: 'Sem internet', id: 1 },
+    { name: 'David', sector: 'TI', problem: 'PC sem funcionar', id: 2 }
   ];
 
   ngOnInit() {
