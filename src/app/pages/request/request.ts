@@ -1,21 +1,31 @@
 import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-request',
-  imports: [MatTableModule],
+  standalone: true,
+  imports: [MatTableModule, HttpClientModule],
   templateUrl: './request.html',
   styleUrl: './request.css'
-})
+}) 
+export class Request implements OnInit {
 
-export class Request implements OnInit { 
-  data = [
-    { name: 'David', sector: 'TI', problem: 'Sem internet', id: 1 },
-    { name: 'David', sector: 'TI', problem: 'PC sem funcionar', id: 2 }
-  ];
-
-  ngOnInit() {
-
+  public getTicketValue: any;
+  public displayedColumns: string[] = ['name', 'sector', 'problem', 'id'];
+  public dataSource: any = [];
+  constructor(private http: HttpClient) {}
+  ngOnInit(): void {
+    this.getMethod();
+  }
+  public getMethod() {
+    ticket: this.getTicketValue;
+    this.http.get('http://localhost:8080/tickets').subscribe((ticket) => {
+      console.log(ticket);
+      this.getTicketValue = ticket;
+      this.dataSource = ticket;
+    });
   }
 }
