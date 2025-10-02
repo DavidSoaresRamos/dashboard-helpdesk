@@ -22,7 +22,7 @@ export class Request implements OnInit {
   }
   public getMethod() {
     ticket: this.getTicketValue;
-    this.http.get('helpdesk-backend-production-372a.up.railway.app').subscribe((ticket) => {
+    this.http.get('https://private-helpdesk-backend.onrender.com/tickets').subscribe((ticket) => {
       console.log(ticket);
       this.getTicketValue = ticket;
       this.dataSource = ticket;
