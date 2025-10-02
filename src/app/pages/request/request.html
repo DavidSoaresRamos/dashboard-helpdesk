@@ -1,57 +1,30 @@
 <div class="title">
-  <h1>SOLICITAÇÕES</h1>
+    <h1>SOLICITAÇÕES</h1>
 </div>
+<div class="fields">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="name" >
+            <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+        </ng-container>
 
-<!-- Barra de pesquisa -->
-<mat-form-field appearance="outline" class="search-bar">
-  <mat-label>Pesquisar</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Nome, setor ou problema">
-</mat-form-field>
+        <ng-container matColumnDef="sector">
+            <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
+        </ng-container>
 
-<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="problem">
+            <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="sector">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Setor </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="problem">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Problema </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
-  </ng-container>
-
-  <!-- Status com badge -->
-  <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <mat-chip [color]="element.status === 'Concluído' ? 'primary' : 'warn'" selected>
-        {{element.status || 'Aberto'}}
-      </mat-chip>
-    </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
-  </ng-container>
-
-  <!-- Coluna de ações -->
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <button mat-icon-button color="primary"><mat-icon>visibility</mat-icon></button>
-      <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
-    </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
-
-<!-- Paginação -->
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+    </mat-table>
+</div>
