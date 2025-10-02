@@ -1,31 +1,36 @@
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-request',
   standalone: true,
-  imports: [MatTableModule, HttpClientModule],
+  imports: [],
   templateUrl: './request.html',
   styleUrl: './request.css'
-}) 
+})
 export class Request implements OnInit {
+  displayedColumns: string[] = ['name', 'sector', 'problem', 'status', 'id', 'actions'];
+  dataSource = new MatTableDataSource<any>([]);
 
-  public getTicketValue: any;
-  public displayedColumns: string[] = ['name', 'sector', 'problem', 'id'];
-  public dataSource: any = [];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    this.getMethod();
+    this.http.get<any[]>('https://private-helpdesk-backend.onrender.com/tickets')
+      .subscribe(tickets => {
+        this.dataSource.data = tickets;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
   }
-  public getMethod() {
-    ticket: this.getTicketValue;
-    this.http.get('https://private-helpdesk-backend.onrender.com/tickets').subscribe((ticket) => {
-      console.log(ticket);
-      this.getTicketValue = ticket;
-      this.dataSource = ticket;
-    });
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
