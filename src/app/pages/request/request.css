@@ -3,40 +3,57 @@ mat-table {
   margin-top: 20px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #eeeef3;
+  border: 1px solid #eeeef3;   /* borda externa suave */
+  display: table;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
 /* HEADER */
 .mat-mdc-header-row {
-  min-height: 48px !important; /* mais alto */
+  display: table-row;
+  min-height: 48px !important;
   height: 48px !important;
 }
 
 .mat-mdc-header-cell {
-  background-color: #eeeef3 !important;
-  color: rgb(7, 6, 6) !important;
+  display: table-cell;
+  background-color: #eeeef3 !important;  /* fundo cinza suave */
+  color: rgb(20, 20, 20) !important;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  padding: 12px 8px !important;
-  border-bottom: solid black;
+  padding: 12px 10px !important;
+  border-bottom: 2px solid #ddd;  /* só linha inferior */
+  text-align: left;
+  vertical-align: middle;
 }
 
-/* LINHAS normais */
+/* LINHAS */
 .mat-mdc-row {
-  min-height: 32px !important; /* mais baixo */
+  display: table-row;
+  min-height: 32px !important;
   height: 37px !important;
 }
 
 .mat-mdc-cell {
-  padding: 4px 8px !important;
+  display: table-cell;
+  padding: 10px 10px !important;
   font-size: 14px;
-  color: #1e1e2f;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+  border-bottom: 1px solid #f0f0f0;  /* linha separadora leve */
+  text-align: left;
+  vertical-align: middle;
+}
+
+.mat-mdc-cell:first-letter {
+  text-transform: uppercase;
 }
 
 /* ZEBRADO */
 .mat-mdc-row:nth-child(even) {
-  background-color: #f7f7fa;
+  background-color: #eeeef3;
 }
 
 /* HOVER */
@@ -47,15 +64,24 @@ mat-table {
 
 /* CONTAINER */
 .fields {
-  padding-top: 16px;
   border-radius: 8px;
   overflow-x: hidden; 
   overflow-y: auto;   
 }
 
-
 mat-header-row {
   position: sticky;
   top: 0;
   z-index: 2;
+}
+
+/* 🔹 COLUNA Problema (com truncamento) */
+.problem-column {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
 }
