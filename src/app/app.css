@@ -1,6 +1,12 @@
 .mat-sidenav {
     width: 100%;
- border-right: solid #eeeef3;
+    background-color: #eeeef3;
+    border-right: solid #09090a;
+    color: black;
+    text-shadow: rgb(185, 161, 161) 0.1em 0.1em 0.2em;
+    font-family: 'Archivo Black';
+    font-size: 18px;
+    z-index: 3;
 }
 
 @media (min-width: 768px) {
@@ -25,10 +31,12 @@ i {
 }
 
 mat-toolbar {
-    background-color: #1E1E2F;
-    color: white;
+    background-color: #eeeef3;
+    text-shadow: rgb(185, 161, 161) 0.1em 0.1em 0.2em;
+    border-bottom: solid #09090a;
 
     h1 {
+        color: black;
         font-family: 'Archivo Black';
         font-size: 20px;
     }
@@ -52,15 +60,15 @@ mat-toolbar {
     min-width: 150px;
     padding: 6px 10px;
     border-radius: 6px;
-    border: none;
-    background-color: #32324d;
+    border: solid #eeeef3;
+    background-color: #faf8f8;
 
     font-family: Arial, Helvetica, sans-serif;
 
 }
 
 ::placeholder {
-    color: white;
+    color: rgb(112, 111, 111);
     font-family: 'archivo black';
     font-size: 15px;
     padding-left: 10px;
