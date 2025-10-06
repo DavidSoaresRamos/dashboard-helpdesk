@@ -1,1 +1,34 @@
-<h1>DISPOSITIVOS</h1>
+<div class="title">
+  <h1>DISPOSITIVOS</h1>
+</div>
+<div class="fields">
+  <mat-table class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Colaborador</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>''
+
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef>Numeração do Dispositivo</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.number}}</mat-cell>
+    </ng-container>
+<ng-container matColumnDef="snid">
+      <mat-header-cell *matHeaderCellDef>SNID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.snid}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef>Modelo</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="chargerNumber">
+      <mat-header-cell *matHeaderCellDef>Numeração do Carregador</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.chargerNumber}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+  </mat-table>
+</div>

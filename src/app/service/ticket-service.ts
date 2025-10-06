@@ -10,6 +10,8 @@ export class TicketService {
    constructor (private http: HttpClient) {}
 
    GetTickets():Observable<TicketInterface[]>{
-    return this.http.get<TicketInterface[]>('https://private-helpdesk-backend.onrender.com/tickets')
+    return this.http.get<TicketInterface[]>('http://localhost:8080/tickets')
    }
 }
+
+// https://private-helpdesk-backend.onrender.com/tickets

@@ -1,30 +1,42 @@
 <div class="title">
-    <h1>SOLICITAÇÕES</h1>
+  <h1>SOLICITAÇÕES</h1>
 </div>
 <div class="fields">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        
-        <ng-container matColumnDef="name" >
-            <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-        </ng-container>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="sector">
-            <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
-        </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>''
 
-        <ng-container matColumnDef="problem">
-            <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.problem}}</mat-cell>
-        </ng-container>
+    <ng-container matColumnDef="sector">
+      <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
+    </ng-container>
 
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
-        </ng-container>
+    <ng-container matColumnDef="problem">
+      <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="problem-column" [title]="element.problem">
+        {{element.problem}}
+      </mat-cell>
+    </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
-    </mat-table>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef>Criado em...</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.created}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+  </mat-table>
 </div>

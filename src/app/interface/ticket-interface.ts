@@ -3,4 +3,5 @@ export interface TicketInterface {
     sector: string;
     problem: string;
     id: string;
+    created: string;
 }

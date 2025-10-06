@@ -14,7 +14,7 @@ import { OnInit } from '@angular/core';
 export class Request implements OnInit {
 
   public getTicketValue: any;
-  public displayedColumns: string[] = ['name', 'sector', 'problem', 'id'];
+  public displayedColumns: string[] = ['name', 'sector', 'problem', 'status','created', 'id'];
   public dataSource: any = [];
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class Request implements OnInit {
   }
   public getMethod() {
     ticket: this.getTicketValue;
-    this.http.get('https://private-helpdesk-backend.onrender.com/tickets').subscribe((ticket) => {
+    this.http.get('http://localhost:8080/tickets').subscribe((ticket) => {
       console.log(ticket);
       this.getTicketValue = ticket;
       this.dataSource = ticket;
