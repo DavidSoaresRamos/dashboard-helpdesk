@@ -7,6 +7,7 @@
     font-family: 'Archivo Black';
     font-size: 18px;
     z-index: 3;
+    padding-top: 55px;
 }
 
 @media (min-width: 768px) {
@@ -82,4 +83,11 @@ mat-nav-list {
 
 .logoName {
     color: white;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 16px 0;
 }

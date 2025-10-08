@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @Component({
   selector: 'app-request',
   standalone: true,
-  imports: [MatTableModule, HttpClientModule],
+  imports: [MatSelectModule, DatePipe, MatTableModule, HttpClientModule],
   templateUrl: './request.html',
   styleUrl: './request.css'
 }) 
@@ -22,7 +24,7 @@ export class Request implements OnInit {
   }
   public getMethod() {
     ticket: this.getTicketValue;
-    this.http.get('http://localhost:8080/tickets').subscribe((ticket) => {
+    this.http.get('https://private-helpdesk-backend.onrender.com/tickets').subscribe((ticket) => {
       console.log(ticket);
       this.getTicketValue = ticket;
       this.dataSource = ticket;
