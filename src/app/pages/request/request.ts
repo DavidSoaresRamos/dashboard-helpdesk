@@ -16,7 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 export class Request implements OnInit {
 
   public getTicketValue: any;
-  public displayedColumns: string[] = ['name', 'sector', 'problem', 'status','created', 'id'];
+  public displayedColumns: string[] = ['name', 'sector', 'problem', 'status','created', 'id', 'actions'];
   public dataSource: any = [];
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
