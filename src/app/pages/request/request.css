@@ -94,6 +94,12 @@ mat-header-row {
   color: #4CAF50; 
   margin-left: 5px;
   font-size: 12px;
+   
+    :hover {
+    
+      transition: color 0.3s ease;
+      font-size: 15px; 
+    }
 }
 
   .deleteButton {
@@ -103,6 +109,12 @@ mat-header-row {
     color: #f44336; 
     font-size: 12px;
   margin-left: 5px;
+
+  :hover {
+     
+      transition: color 0.3s ease;
+      font-size: 15px; 
+    }
   }
 
 

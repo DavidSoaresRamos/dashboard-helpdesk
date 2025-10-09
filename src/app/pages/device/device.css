@@ -1,0 +1,121 @@
+mat-table {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eeeef3;  
+  display: table;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+
+.mat-mdc-header-row {
+  display: table-row;
+  min-height: 48px !important;
+  height: 48px !important;
+}
+
+.mat-mdc-header-cell {
+  display: table-cell;
+  background-color: #eeeef3 !important; 
+  color: rgb(20, 20, 20) !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 12px !important;
+  border-bottom: 2px solid #ddd;  
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+.mat-mdc-row {
+  display: table-row;
+  min-height: 32px !important;
+  height: 37px !important;
+}
+
+.mat-mdc-cell {
+  display: table-cell;
+  padding: 10px 10px !important;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+  border-bottom: 1px solid #f0f0f0;  
+  text-align: left;
+  vertical-align: middle;
+}
+
+.mat-mdc-cell:first-letter {
+  text-transform: uppercase;
+}
+
+
+.mat-mdc-row:nth-child(even) {
+  background-color: #eeeef3;
+}
+
+
+.mat-mdc-row:hover {
+  background-color: rgba(46, 46, 56, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+
+.fields {
+  border-radius: 8px;
+  overflow-x: hidden; 
+  overflow-y: auto;   
+}
+
+mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+
+
+.problem-column {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #4CAF50; 
+  margin-left: 5px;
+  font-size: 12px;
+   
+    :hover {
+      color: #333333;
+      transition: color 0.3s ease;
+      font-size: 15px; 
+    }
+}
+
+  .deleteButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #f44336; 
+    font-size: 12px;
+  margin-left: 5px;
+
+  :hover {
+      color: #333333;
+      transition: color 0.3s ease;
+      font-size: 15px; 
+    }
+  }
+
+
+ 
