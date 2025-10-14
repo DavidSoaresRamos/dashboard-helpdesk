@@ -3,5 +3,6 @@ export interface TicketInterface {
     sector: string;
     problem: string;
     id: string;
+    status: string;
     created: string;
 }

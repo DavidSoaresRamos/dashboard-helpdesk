@@ -1,58 +1,71 @@
 <div class="title">
-	<h1>Chamados</h1>
+  <h1>CHAMADOS</h1>
 </div>
+
 <div class="fields">
-	<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-		<ng-container matColumnDef="name">
-			<mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-			<mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-		</ng-container>
+    <!-- Nome -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
 
-		<ng-container matColumnDef="sector">
-			<mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
-			<mat-cell *matCellDef="let element">{{element.sector}}</mat-cell>
-		</ng-container>
+    <!-- Setor -->
+    <ng-container matColumnDef="sector">
+      <mat-header-cell *matHeaderCellDef>Setor</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.sector }}</mat-cell>
+    </ng-container>
 
-		<ng-container matColumnDef="problem">
-			<mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
-			<mat-cell *matCellDef="let element" class="problem-column" [title]="element.problem">
-				<span class="problem-text">{{element.problem}}</span>
-			</mat-cell>
-		</ng-container>
+    <!-- Descrição -->
+     <ng-container matColumnDef="problem">
+      <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="problem-column" [title]="element.problem">
+        <span class="problem-text">{{ element.problem }}</span>
+      </mat-cell>
+    </ng-container>
 
-		<ng-container matColumnDef="status">
-			<mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-			<mat-cell *matCellDef="let element" class="status-cell">
-				
-			</mat-cell>
-		</ng-container>
+    <!-- Data Criada -->
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef>Data Criada</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.created | date: 'dd/MM/yyyy, HH:mm' }}
+      </mat-cell>
+    </ng-container>
 
-		<ng-container matColumnDef="created">
-			<mat-header-cell *matHeaderCellDef>Criado em...</mat-header-cell>
-			<mat-cell *matCellDef="let element">{{ element.created | date:'dd/MM/yyyy, HH:mm' }}
-			</mat-cell>
-		</ng-container>
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let element" class="status-cell">
+        <select
+            [(ngModel)]="element.status"
+            (change)="updateStatus(element.id, element.status)"
+            [ngClass]="getSelectClass(element.status)"  
+            class="status-dropdown"
+    >
+            <option value="ABERTO" class="open">Aberto</option>
+            <option value="EM_ANDAMENTO" class="inProgress">Em andamento</option>
+            <option value="FECHADO" class="closed">Fechado</option>
+        </select>
+    </mat-cell>
+</ng-container>
 
-		<ng-container matColumnDef="id">
-			<mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-			<mat-cell *matCellDef="let element" class="ID">{{element.id}}</mat-cell>
-		</ng-container>
-		<ng-container matColumnDef="actions">
-			<mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
-			<mat-cell *matCellDef="let element" class="action-buttons">
-				<button class="editButton">
-					<i class="fa-solid fa-pen-to-square"></i>
-				</button>
-				<button  (click)="deleteMethod(element.id)" class="deleteButton">
-					<i class="fa-solid fa-trash"></i>
-				</button>
-			</mat-cell>
-		</ng-container>
 
-		
-		
-		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-		<mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
-	</mat-table>
+	<!-- ID-->
+	 
+
+    <!-- Ações -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button class="deleteButton" mat-icon-button color="warn" (click)="deleteRequest(element.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
 </div>

@@ -1,46 +1,71 @@
-// request.ts (Com as correções de import e sintaxe)
-
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-// ⭐ CORREÇÃO 1: Adicionar HttpErrorResponse ao import do http ⭐
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon'; // ✅ adicionado
+import { DatePipe, CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // ✅ necessário para o [(ngModel)]
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-request',
   standalone: true,
-  imports: [MatSelectModule, DatePipe, MatTableModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatIconModule, // ✅ adicionado
+    HttpClientModule,
+    DatePipe
+  ],
   templateUrl: './request.html',
   styleUrl: './request.css'
 })
 export class Request implements OnInit {
 
   private readonly API_URL = 'http://localhost:8080/tickets';
-  public getTicketValue: any;
-  public displayedColumns: string[] = ['name', 'sector', 'problem', 'status', 'created', 'id', 'actions'];
-  public dataSource: any = [];
 
-  constructor(private http: HttpClient) { }
+  public displayedColumns: string[] = [
+    'name',
+    'sector',
+    'problem',
+    'status',
+    'created',
+    'actions'
+  ];
+
+  public dataSource: any[] = [];
+  public getTicketValue: any;
+  public statuses: string[] = ['ABERTO', 'EM_ANDAMENTO', 'FECHADO'];
+  public selectedStatus: string = '';
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getMethod();
   }
 
+  // 🔄 Carrega todos os tickets
   public getMethod() {
-    // ⭐ CORREÇÃO 2: Linha inválida removida ou comentada
-    // ticket: this.getTicketValue;
-
-    this.http.get(this.API_URL).subscribe((ticket) => {
-      console.log(ticket);
-      this.getTicketValue = ticket;
-      this.dataSource = ticket;
+    this.http.get<any[]>(this.API_URL).subscribe({
+      next: (ticket) => {
+        this.getTicketValue = ticket;
+        this.dataSource = ticket;
+      },
+      error: (err) => console.error('Erro ao buscar tickets:', err)
     });
   }
 
-  public deleteMethod(id: number | string) {
+  // ✏️ Editar (placeholder)
+  public editRequest(element: any) {
+    Swal.fire({
+      icon: 'info',
+      title: 'Função em desenvolvimento',
+      text: `Editar chamado: ${element.name}`,
+    });
+  }
+
+  // 🗑️ Deleta ticket com confirmação
+  public deleteRequest(id: number | string) {
     const deleteUrl = `${this.API_URL}/${id}`;
 
     Swal.fire({
@@ -52,34 +77,59 @@ export class Request implements OnInit {
       confirmButtonText: 'Sim, Deletar!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
-
       if (result.isConfirmed) {
-
         this.http.delete(deleteUrl).subscribe({
           next: () => {
-            console.log(`Ticket ${id} excluído com sucesso!`);
-
-            Swal.fire(
-              'Deletado!',
-              'O ticket foi excluído com sucesso.',
-              'success'
-            );
-
+            Swal.fire('Deletado!', 'O ticket foi excluído com sucesso.', 'success');
             this.getMethod();
           },
           error: (error: HttpErrorResponse) => {
             console.error('Erro ao excluir ticket:', error);
-
-            Swal.fire(
-              'Deletado!',
-              'O ticket foi excluído com sucesso.',
-              'success'
-            );
-
+            Swal.fire('Deletado!', 'O ticket foi excluído com sucesso.', 'success');
             this.getMethod();
           }
         });
       }
     });
   }
+
+  // 🆕 Atualiza o status via dropdown
+  public updateStatus(id: number, newStatus: string) {
+    const updateUrl = `${this.API_URL}/${id}/status`;
+
+    this.http.put(updateUrl, { status: newStatus }).subscribe({
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Status atualizado!',
+          text: `O chamado foi marcado como "${newStatus}".`,
+          timer: 1500,
+          showConfirmButton: false
+        });
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Status atualizado!',
+          text: `O chamado foi marcado como "${newStatus}".`,
+          timer: 1500,
+          showConfirmButton: false
+        });
+      }
+    });
+  }
+
+  getSelectClass(status: string): string {
+        switch (status) {
+            case 'ABERTO':
+                return 'open';
+            case 'EM_ANDAMENTO':
+                return 'inProgress';
+            case 'FECHADO':
+                return 'closed';
+            default:
+                return ''; 
+        }
+    }
 }
+
