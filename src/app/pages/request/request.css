@@ -148,17 +148,19 @@ mat-header-row {
 
 
 .open {
-    background-color: #d4edda; /* Verde claro */
-    color: #155724; /* Texto verde escuro */
+    color: white; 
+    background-color: blue; 
 }
 
 .inProgress {
-    background-color: yellow; /* Azul claro */
-    color: rgb(117, 117, 53); /* Texto azul escuro */
+    background-color: yellow; 
+    color: orange; 
 }
 
 
 .closed {
-    background-color: #f8d7da; /* Vermelho claro */
-    color: #721c24; /* Texto vermelho escuro */
+    background-color: green; 
+    color: white; 
 }
+
+

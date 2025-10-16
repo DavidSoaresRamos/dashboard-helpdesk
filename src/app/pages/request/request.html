@@ -34,15 +34,15 @@
     </ng-container>
 
     <!-- Status -->
-    <ng-container matColumnDef="status">
+   <ng-container matColumnDef="status">
     <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
     <mat-cell *matCellDef="let element" class="status-cell">
-        <select
+        <select 
             [(ngModel)]="element.status"
-            (change)="updateStatus(element.id, element.status)"
-            [ngClass]="getSelectClass(element.status)"  
+            (ngModelChange)="updateStatus(element.id, $event)" 
+            [ngClass]="getSelectClass(element.status)"  
             class="status-dropdown"
-    >
+        >
             <option value="ABERTO" class="open">Aberto</option>
             <option value="EM_ANDAMENTO" class="inProgress">Em andamento</option>
             <option value="FECHADO" class="closed">Fechado</option>

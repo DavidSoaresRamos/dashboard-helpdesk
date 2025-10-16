@@ -6,6 +6,7 @@ import { DatePipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // ✅ necessário para o [(ngModel)]
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-request',
   standalone: true,
@@ -94,7 +95,8 @@ export class Request implements OnInit {
   }
 
   // 🆕 Atualiza o status via dropdown
-  public updateStatus(id: number, newStatus: string) {
+  public updateStatus(id: string, newStatus: string) {
+    console.log('Atualizando ticket:', id, 'para status:', newStatus);
     const updateUrl = `${this.API_URL}/${id}/status`;
 
     this.http.put(updateUrl, { status: newStatus }).subscribe({
