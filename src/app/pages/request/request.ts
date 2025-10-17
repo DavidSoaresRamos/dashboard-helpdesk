@@ -23,7 +23,7 @@ import Swal from 'sweetalert2';
 })
 export class Request implements OnInit {
 
-  private readonly API_URL = 'http://localhost:8080/tickets';
+  private readonly API_URL = 'https://private-helpdesk-backend.onrender.com/tickets';
 
   public displayedColumns: string[] = [
     'name',
