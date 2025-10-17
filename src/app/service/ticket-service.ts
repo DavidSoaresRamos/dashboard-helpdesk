@@ -10,7 +10,7 @@ import { TicketInterface } from '../interface/ticket-interface';
 })
 export class TicketService {
     // Definindo a URL base como uma constante para facilitar a manutenção
-    private readonly API = 'http://localhost:8080/tickets';
+    private readonly API = 'https://private-helpdesk-backend.onrender.com/tickets';
 
     constructor (private http: HttpClient) {}
 
