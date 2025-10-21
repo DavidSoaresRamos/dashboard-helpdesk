@@ -1,34 +1,109 @@
-<div class="title">
-  <h1>DISPOSITIVOS</h1>
-</div>
-<div class="fields">
-  <mat-table class="mat-elevation-z8">
+<div class="header">
+  <div class="title">
+    <h1>DISPOSITIVOS</h1>
+  </div>
 
+  <div class="summary">
+    <span class="available">Disponíveis: {{ availableCount }}</span>
+    <span class="inuse">Em uso: {{ inUseCount }}</span>
+  </div>
+
+  <div class="actions">
+    <button class="refresh" (click)="getDevices()">
+      <i class="fa-solid fa-arrows-rotate"></i> Atualizar
+    </button>
+    <button class="add" (click)="openModal()">
+      <i class="fa-solid fa-plus"></i> Adicionar Dispositivo
+    </button>
+  </div>
+</div>
+
+<div class="filters">
+  <label>Status:</label>
+  <select [(ngModel)]="filterStatus" (change)="applyFilters()">
+    <option value="all">Todos</option>
+    <option value="DISPONIVEL">Disponíveis</option>
+    <option value="EM_USO">Em uso</option>
+  </select>
+
+  <button class="sort" (click)="toggleSort()">
+    Ordenar por Nº Dispositivo
+    <mat-icon>{{ sortAscending ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+  </button>
+</div>
+
+<div class="fields">
+  <mat-table [dataSource]="filteredData" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Colaborador</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-    </ng-container>''
-
-    <ng-container matColumnDef="number">
-      <mat-header-cell *matHeaderCellDef>Numeração do Dispositivo</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.number}}</mat-cell>
     </ng-container>
-<ng-container matColumnDef="snid">
+
+    <ng-container matColumnDef="deviceNumber">
+      <mat-header-cell *matHeaderCellDef>Nº do Dispositivo</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.deviceNumber}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="snid">
       <mat-header-cell *matHeaderCellDef>SNID</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.snid}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="model">
       <mat-header-cell *matHeaderCellDef>Modelo</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.model}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="chargerNumber">
-      <mat-header-cell *matHeaderCellDef>Numeração do Carregador</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Nº do Carregador</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.chargerNumber}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span [ngClass]="{'status-available': element.status === 'DISPONIVEL', 'status-inuse': element.status === 'EM_USO'}">
+          {{element.status === 'DISPONIVEL' ? 'Disponível' : 'Em uso'}}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button class="editButton" mat-icon-button color="primary" (click)="editDevice(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="deleteButton" mat-icon-button color="warn" (click)="deleteDevice(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
+</div>
+
+<!-- 🔹 MODAL DE CADASTRO -->
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Adicionar Novo Dispositivo</h2>
+    <form>
+      <input placeholder="Colaborador" [(ngModel)]="newDevice.name" name="name" />
+      <input placeholder="Nº do Dispositivo" [(ngModel)]="newDevice.deviceNumber" name="deviceNumber" />
+      <input placeholder="SNID" [(ngModel)]="newDevice.snid" name="snid" />
+      <input placeholder="Modelo" [(ngModel)]="newDevice.model" name="model" />
+      <input placeholder="Nº do Carregador" [(ngModel)]="newDevice.chargerNumber" name="chargerNumber" />
+      <select [(ngModel)]="newDevice.status" name="status">
+        <option value="DISPONIVEL">Disponível</option>
+        <option value="EM_USO">Em uso</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" (click)="saveDevice()">Salvar</button>
+        <button type="button" class="cancel" (click)="closeModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
 </div>

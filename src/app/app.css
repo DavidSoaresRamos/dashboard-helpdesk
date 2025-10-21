@@ -10,6 +10,7 @@
     padding-top: 55px;
 }
 
+
 @media (min-width: 768px) {
     .mat-sidenav {
         width: 250px;
