@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./device.css']
 })
 export class Device implements OnInit {
-  private readonly API_URL = 'http://localhost:8080/devices';
+  private readonly API_URL = 'https://private-helpdesk-backend.onrender.com/devices';
 
   public displayedColumns: string[] = ['name', 'deviceNumber', 'snid', 'model', 'chargerNumber', 'status', 'actions'];
   public dataSource: any[] = [];

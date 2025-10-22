@@ -62,7 +62,8 @@
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <span [ngClass]="{'status-available': element.status === 'DISPONIVEL', 'status-inuse': element.status === 'EM_USO'}">
+        <span
+          [ngClass]="{'status-available': element.status === 'DISPONIVEL', 'status-inuse': element.status === 'EM_USO'}">
           {{element.status === 'DISPONIVEL' ? 'Disponível' : 'Em uso'}}
         </span>
       </mat-cell>
@@ -72,10 +73,10 @@
       <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button class="editButton" mat-icon-button color="primary" (click)="editDevice(element)">
-          <mat-icon>edit</mat-icon>
+         <i class="fa-solid fa-pen-to-square"></i>
         </button>
         <button class="deleteButton" mat-icon-button color="warn" (click)="deleteDevice(element)">
-          <mat-icon>delete</mat-icon>
+          <i class="fa-solid fa-trash"></i>
         </button>
       </mat-cell>
     </ng-container>
