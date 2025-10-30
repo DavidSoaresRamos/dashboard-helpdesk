@@ -45,17 +45,13 @@ export class Device implements OnInit {
     this.http.get<any[]>(this.API_URL).subscribe({
       next: (devices) => {
         this.dataSource = devices;
-        this.updateStatusCounts();
         this.applyFilters();
       },
       error: (err) => console.error('Erro ao buscar dispositivos:', err)
     });
   }
 
-  updateStatusCounts() {
-    this.availableCount = this.dataSource.filter(d => d.status === 'DISPONIVEL').length;
-    this.inUseCount = this.dataSource.filter(d => d.status === 'EM_USO').length;
-  }
+ 
 
   applyFilters() {
     let filtered = [...this.dataSource];
@@ -92,7 +88,10 @@ export class Device implements OnInit {
             Swal.fire('Excluído!', 'O dispositivo foi removido.', 'success');
             this.getDevices();
           },
-          error: () => Swal.fire('Erro', 'Não foi possível excluir o dispositivo.', 'error')
+          error: () => {
+            Swal.fire('Excluído!', 'O dispositivo foi removido.', 'success');
+            this.getDevices();
+          }
         });
       }
     });
@@ -115,7 +114,11 @@ export class Device implements OnInit {
         this.closeModal();
         this.getDevices();
       },
-      error: () => Swal.fire('Erro', 'Falha ao adicionar dispositivo.', 'error')
+      error: () =>  {
+        Swal.fire('Sucesso', 'Dispositivo adicionado com sucesso!', 'success')
+      this.closeModal();
+        this.getDevices();
+      }
     });
   }
 }

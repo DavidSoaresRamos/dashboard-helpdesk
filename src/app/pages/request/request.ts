@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon'; // ✅ adicionado
+import { MatIconModule } from '@angular/material/icon'; 
 import { DatePipe, CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // ✅ necessário para o [(ngModel)]
+import { FormsModule } from '@angular/forms'; 
 import Swal from 'sweetalert2';
 
 
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
     CommonModule,
     FormsModule,
     MatTableModule,
-    MatIconModule, // ✅ adicionado
+    MatIconModule, 
     HttpClientModule,
     DatePipe
   ],
@@ -45,7 +45,7 @@ export class Request implements OnInit {
     this.getMethod();
   }
 
-  // 🔄 Carrega todos os tickets
+
   public getMethod() {
     this.http.get<any[]>(this.API_URL).subscribe({
       next: (ticket) => {
@@ -56,16 +56,8 @@ export class Request implements OnInit {
     });
   }
 
-  // ✏️ Editar (placeholder)
-  public editRequest(element: any) {
-    Swal.fire({
-      icon: 'info',
-      title: 'Função em desenvolvimento',
-      text: `Editar chamado: ${element.name}`,
-    });
-  }
 
-  // 🗑️ Deleta ticket com confirmação
+
   public deleteRequest(id: number | string) {
     const deleteUrl = `${this.API_URL}/${id}`;
 
@@ -94,7 +86,7 @@ export class Request implements OnInit {
     });
   }
 
-  // 🆕 Atualiza o status via dropdown
+
   public updateStatus(id: string, newStatus: string) {
     console.log('Atualizando ticket:', id, 'para status:', newStatus);
     const updateUrl = `${this.API_URL}/${id}/status`;
