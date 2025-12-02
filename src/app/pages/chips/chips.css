@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: black;
+}
+
+mat-table {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mat-mdc-header-cell {
+  background-color: #eeeef3 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ddd;
+}
+
+.mat-mdc-cell {
+    font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mat-mdc-row:nth-child(even) {
+  background-color: #eeeef3;
+}
+
+.mat-mdc-row:hover {
+  background-color: rgba(46, 46, 56, 0.05);
+  transition: 0.2s;
+}
+
+
+
+
+
+

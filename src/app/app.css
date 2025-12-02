@@ -1,7 +1,7 @@
 .mat-sidenav {
     width: 100%;
     background-color: #eeeef3;
-    border-right: solid #09090a;
+    border-right: solid #696969;
     color: black;
     text-shadow: rgb(185, 161, 161) 0.1em 0.1em 0.2em;
     font-family: 'Archivo Black';
@@ -35,7 +35,7 @@ i {
 mat-toolbar {
     background-color: #eeeef3;
     text-shadow: rgb(185, 161, 161) 0.1em 0.1em 0.2em;
-    border-bottom: solid #09090a;
+    border-bottom: solid #696969;
 
     h1 {
         color: black;
@@ -44,8 +44,9 @@ mat-toolbar {
     }
 
     img {
-        width: 40px;
-        height: 40px;
+        width: 75px;
+        height: 75px;
+        padding-top: 10px;
         padding-right: 10px;
     }
 }

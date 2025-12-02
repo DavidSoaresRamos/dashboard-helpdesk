@@ -1,1 +1,29 @@
-<h1>LISTA</h1>
+<h1>Lista de Chips</h1>
+
+<div class="fields" >
+ <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ddd">
+      <mat-header-cell *matHeaderCellDef>Número</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.ddd }}</mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef>Numero</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.number }}</mat-cell>     
+    </ng-container>
+
+    <ng-container matColumnDef="observation">
+      <mat-header-cell *matHeaderCellDef>Numero</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.observation }}</mat-cell>     
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+</div>

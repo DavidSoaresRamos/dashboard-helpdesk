@@ -53,17 +53,14 @@ mat-table {
   text-transform: uppercase;
 }
 
-
 .mat-mdc-row:nth-child(even) {
   background-color: #eeeef3;
 }
-
 
 .mat-mdc-row:hover {
   background-color: rgba(46, 46, 56, 0.05);
   transition: background-color 0.2s ease;
 }
-
 
 .fields {
   border-radius: 8px;
@@ -76,8 +73,6 @@ mat-header-row {
   top: 0;
   z-index: 2;
 }
-
-
 
 .problem-column {
   max-width: 200px;
