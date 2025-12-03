@@ -1,4 +1,4 @@
-<h1>Lista de Chips</h1>
+<h1>SIMCards</h1>
 
 <div class="fields" >
  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -8,7 +8,7 @@
     </ng-container>
 
     <ng-container matColumnDef="ddd">
-      <mat-header-cell *matHeaderCellDef>Número</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>DDD</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.ddd }}</mat-cell>
       </ng-container>
 
@@ -18,7 +18,7 @@
     </ng-container>
 
     <ng-container matColumnDef="observation">
-      <mat-header-cell *matHeaderCellDef>Numero</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Itens Possuidos</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.observation }}</mat-cell>     
     </ng-container>
 

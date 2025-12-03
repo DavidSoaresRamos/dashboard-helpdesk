@@ -28,9 +28,9 @@ export class Request implements OnInit {
   public displayedColumns: string[] = [
     'name',
     'sector',
-    'problem',
     'status',
     'created',
+    'problem',
     'actions'
   ];
 

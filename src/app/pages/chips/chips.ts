@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
 
 export class Chips implements OnInit {
 private readonly API_URL = 'https://private-helpdesk-backend.onrender.com/SIMCard';
-  public displayedColumns: string[] = [ 'name', 'ddd', 'number', 'observation' ];
+  public displayedColumns: string[] = ['name', 'ddd', 'number', 'observation'];
   public dataSource: any[] = [];
   public getChipsValue: any;
   constructor(private http: HttpClient) {}

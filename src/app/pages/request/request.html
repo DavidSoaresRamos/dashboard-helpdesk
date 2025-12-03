@@ -17,14 +17,6 @@
       <mat-cell *matCellDef="let element">{{ element.sector }}</mat-cell>
     </ng-container>
 
-    <!-- Descrição -->
-     <ng-container matColumnDef="problem">
-      <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
-      <mat-cell *matCellDef="let element" class="problem-column" [title]="element.problem">
-        <span class="problem-text">{{ element.problem }}</span>
-      </mat-cell>
-    </ng-container>
-
     <!-- Data Criada -->
     <ng-container matColumnDef="created">
       <mat-header-cell *matHeaderCellDef>Data Criada</mat-header-cell>
@@ -51,8 +43,13 @@
 </ng-container>
 
 
-	<!-- ID-->
-	 
+	 <!-- Descrição -->
+     <ng-container matColumnDef="problem">
+      <mat-header-cell *matHeaderCellDef>Problema</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="problem-column" [title]="element.problem">
+        <span class="problem-text">{{ element.problem }}</span>
+      </mat-cell>
+    </ng-container>
 
     <!-- Ações -->
     <ng-container matColumnDef="actions">
