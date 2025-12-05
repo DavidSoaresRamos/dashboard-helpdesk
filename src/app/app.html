@@ -1,47 +1,57 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <img class="logo" src="logo.png" alt="logo" width="50" height="50">
-    </mat-toolbar-row>
-</mat-toolbar>
 <mat-sidenav-container>
+
   <mat-sidenav opened mode="side">
+
+    <!-- LOGO NO TOPO -->
+    <div class="sidebar-header">
+      <img src="logo.png" class="sidebar-logo" alt="logo">
+    </div>
+
     <mat-nav-list>
+
       <a mat-list-item routerLink="/">
         <i class="fa-solid fa-house"></i>
         <span>Início</span>
       </a>
+
       <a mat-list-item routerLink="/inbox">
         <i class="fa-solid fa-inbox"></i>
         <span>Caixa de Entrada</span>
       </a>
+
       <hr>
+
       <a mat-list-item routerLink="/requests">
-       <i class="fa-solid fa-ticket"></i>
+        <i class="fa-solid fa-ticket"></i>
         <span>Chamados</span>
       </a>
+
       <a mat-list-item routerLink="/device">
         <i class="fa-solid fa-desktop"></i>
         <span>Dispositivos</span>
       </a>
-        <a mat-list-item routerLink="/chips">
-         <i class="fa-solid fa-bars"></i>
+
+      <a mat-list-item routerLink="/chips">
+        <i class="fa-solid fa-bars"></i>
         <span>SIMCards</span>
-        
       </a>
+
       <a mat-list-item routerLink="/kanban">
         <i class="fa-solid fa-chart-simple"></i>
         <span>Quadro</span>
       </a>
-      
-    
+
       <a mat-list-item routerLink="">
-         <i class="fa-solid fa-box"></i>
+        <i class="fa-solid fa-box"></i>
         <span>Estoque</span>
-        
       </a>
+
     </mat-nav-list>
+
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <router-outlet />
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
+
 </mat-sidenav-container>
